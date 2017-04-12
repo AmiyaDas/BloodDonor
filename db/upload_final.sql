@@ -1,54 +1,17 @@
--- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Mar 24, 2017 at 06:47 PM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.5.38
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `blood`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `bloodbank`
---
 
 CREATE TABLE `bloodbank` (
   `bankid` int(5) NOT NULL,
   `name` varchar(30) NOT NULL,
   `city` varchar(20) NOT NULL,
   `address` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `city`
---
+);
 
 CREATE TABLE `city` (
   `city_id` int(5) NOT NULL,
   `city_name` varchar(50) NOT NULL,
   `state_id` int(2) NOT NULL,
   `state` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
-
---
--- Dumping data for table `city`
---
+);
 
 INSERT INTO `city` (`city_id`, `city_name`, `state_id`, `state`) VALUES
 (1, 'Port Blair', 1, 'Andaman and Nicobar Islands'),
@@ -318,22 +281,13 @@ INSERT INTO `city` (`city_id`, `city_name`, `state_id`, `state`) VALUES
 (38, 'Jalpaiguri', 5, 'West Bengal'),
 (34, 'Kolkata', 5, 'West Bengal');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `donor`
---
 
 CREATE TABLE `donor` (
   `uid` int(5) NOT NULL,
   `bgroup` varchar(4) NOT NULL,
   `lastdonated` date DEFAULT NULL,
   `city` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `donor`
---
+);
 
 INSERT INTO `donor` (`uid`, `bgroup`, `lastdonated`, `city`) VALUES
 (1, 'op', '0000-00-00', 'Ranchi'),
@@ -341,48 +295,14 @@ INSERT INTO `donor` (`uid`, `bgroup`, `lastdonated`, `city`) VALUES
 (3, 'op', '2017-03-03', 'Patna'),
 (4, 'op', '2017-03-10', 'Ranchi');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `hospital`
---
 
 CREATE TABLE `hospital` (
   `hospid` int(5) NOT NULL,
   `name` varchar(30) NOT NULL,
   `city` varchar(20) NOT NULL,
   `address` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `item`
---
-
-CREATE TABLE `item` (
-  `name` varchar(20) NOT NULL,
-  `stock` int(11) DEFAULT NULL,
-  `price` float DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `item`
---
-
-INSERT INTO `item` (`name`, `stock`, `price`) VALUES
-('sugar', 10, 50),
-('chocolate', 20, 10),
-('rice', 50, 30),
-('salt', 30, 20),
-('biscuit', 20, 20),
-('soap', 5, 25);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `msg`
---
 
 CREATE TABLE `msg` (
   `msgid` int(6) NOT NULL,
@@ -390,13 +310,7 @@ CREATE TABLE `msg` (
   `receiver` varchar(30) NOT NULL,
   `msgtxt` varchar(1000) DEFAULT NULL,
   `msgdate` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `profile`
---
+);
 
 CREATE TABLE `profile` (
   `uid` int(5) NOT NULL,
@@ -405,11 +319,7 @@ CREATE TABLE `profile` (
   `sex` varchar(1) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `donor` varchar(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `profile`
---
+);
 
 INSERT INTO `profile` (`uid`, `email`, `name`, `sex`, `phone`, `donor`) VALUES
 (3, 'aggu@xyz.com', 'AGGU', 'M', '12345', 'Y'),
@@ -417,21 +327,12 @@ INSERT INTO `profile` (`uid`, `email`, `name`, `sex`, `phone`, `donor`) VALUES
 (4, 'piku@xyz.com', 'PIKU', 'M', '12345', 'Y'),
 (2, 'pogo@xyz.com', 'POGO', 'F', '12345', 'Y');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
 
 CREATE TABLE `user` (
   `uid` int(5) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL DEFAULT 'user'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
+);
 
 INSERT INTO `user` (`uid`, `email`, `password`) VALUES
 (1, 'amiya@xyz.com', '12345'),
@@ -441,53 +342,25 @@ INSERT INTO `user` (`uid`, `email`, `password`) VALUES
 (5, 'umang', '12345'),
 (7, 'email', 'password');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `bloodbank`
---
 ALTER TABLE `bloodbank`
   ADD PRIMARY KEY (`bankid`);
 
---
--- Indexes for table `city`
---
 ALTER TABLE `city`
   ADD PRIMARY KEY (`city_id`);
 
---
--- Indexes for table `donor`
---
 ALTER TABLE `donor`
   ADD PRIMARY KEY (`uid`);
 
---
--- Indexes for table `hospital`
---
 ALTER TABLE `hospital`
   ADD PRIMARY KEY (`hospid`);
 
---
--- Indexes for table `msg`
---
 ALTER TABLE `msg`
   ADD PRIMARY KEY (`msgid`);
 
---
--- Indexes for table `profile`
---
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`email`);
 
---
--- Indexes for table `user`
---
 ALTER TABLE `user`
   ADD PRIMARY KEY (`uid`),
   ADD UNIQUE KEY `email` (`email`);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
