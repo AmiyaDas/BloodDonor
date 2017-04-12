@@ -9,6 +9,18 @@
   
   <link rel="stylesheet" href="css/style.css">
   <script type="text/javascript">
+  function checkpass()
+  {
+	  
+	  p1=document.getElementById("pass");
+	  p2=document.getElementById("pass2");
+	  if(p1.value!=p2.value)
+	  {
+		alert("Password does not match!");
+		p1.value="";
+		p2.value="";
+	  }
+  }
   function sel()
   {
 	  v1=document.getElementById("yes");
@@ -33,7 +45,7 @@
   <div class="login-wrap">
 	<div class="login-html">
 		<img src="img/lifeline2.png" height="80"><br/>
-		<label for="tab-1" class="tab"><a href="login.php">Sign In</a></label>
+		<label for="tab-1" class="tab"><a href="index.php">Sign In</a></label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">Sign Up</label>
 		<div class="login-form">
 			<div class="sign-up-htm">
@@ -51,8 +63,8 @@
 					<input id="pass" name="pwd" type="password" class="input" data-type="password">
 				</div>
 				<div class="group">
-					<label for="pass2" class="label">Repeat Password</label>
-					<input id="pass2" type="password" class="input" data-type="password">
+					<label for="pass2" id="lbl" class="label">Repeat Password</label>
+					<input id="pass2" type="password" class="input" data-type="password" onblur="checkpass()">
 				</div>
 				<div class="group">
 					<label for="phone" class="label">Phone number</label>
@@ -76,7 +88,7 @@
 				</form>
 				<div class="hr"></div>
 				<div class="foot-lnk">
-					<label><a href="login.php">Already Member?</a></label>
+					<label><a href="index.php">Already Member?</a></label>
 				</div>
 			</div>
 		</div>

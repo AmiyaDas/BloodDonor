@@ -5,12 +5,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <link rel="icon" href="img/fav1.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="img/fav1.ico" type="image/x-icon" />
-    <menue>Index</menue>
-  
   <link rel="stylesheet" href="css/style.css">
-  
+    <title>Login Form</title>
 </head>
 
 <body>
@@ -18,26 +15,31 @@
   <div class="login-wrap">
 	<div class="login-html">
 		<img src="img/lifeline2.png" height="80"><br/>
-		<div class="menu"><a href="home.php">#Home(after login)</a></div><br/>
-		<div class="menu"><a href="login.php">#login</a></div><br/>
-		<div class="menu"><a href="signup.php">#signup</a></div><br/>
-		<div class="menu"><a href="signedup.php">~Signed up(through sign up)</a></div><br/>
-		<div class="menu"><a href="state.php">#state</a></div><br/>
-		<div class="menu"><a href="city.php">#city(through state)</a></div><br/>
-		<div class="menu"><a href="profile.php">~Profile(through home)</a></div><br/>
-		<div class="menu"><a href="profileedit.php">,Edit Profile(through profile)</a></div><br/>
-		<div class="menu"><a href="donor.php">#Donor(through sign up)</a></div><br/>
-		<div class="menu"><a href="donorfilled.php">#Donor Filled(through donor)</a></div><br/>
-		<div class="menu"><a href="finddonor.php">#Find Donors(through home)</a></div><br/>
-		<div class="menu"><a href="finddonor2.php">#Find Donors 2(through find donor)</a></div><br/>
-		<div class="menu"><a href="resdonor.php">#Find Donors Results(through find donor 2)</a></div><br/>
-		<div class="menu"><a href="profiledonor.php">~Donors profile(through find donor results)</a></div><br/>
-		<div class="menu"><a href="hospital.php">~Find Hospital(through home)</a></div><br/>
-		<div class="menu"><a href="hospital2.php">~Hospital List(through hospital1)</a></div><br/>
-		<div class="menu"><a href="bloodbank.php">,Find BloodBanks(through home)</a></div><br/><br/>
-		
-		
-		
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<label for="tab-2" class="tab"><a href="signup.php">Sign Up</a></label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<form action="home.php" method="post">
+				<div class="group">
+					<label for="user" class="label">Email address</label>
+					<input id="user" type="text" class="input" name="email">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" class="input" name="pswd" data-type="password">
+				</div>
+				<br/>
+				<div class="group">
+					<input type="submit" class="button" value="Sign In">
+				</div>
+				</form>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<a href="forgot.php">Forgot Password?</a>
+				</div>
+			</div>
+			
+		</div>
 	</div>
 </div>
   

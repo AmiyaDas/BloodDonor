@@ -1,17 +1,15 @@
 <?php
 include_once("connection.php");
 
-$em= $_POST['email'];
-$pswd= $_POST['pswd'];
-//$con=mysqli_connect("localhost","root","","blood");
+$id= $_GET['id'];
 
-if(!empty($em) and !empty($pswd))
+/*if(!empty($id))
 {
-$query = "Select * from user where email='$em';";
+$query = "Select * from user where uid='$id';";
 $qres=mysqli_query($con,$query);
 $row=mysqli_fetch_assoc($qres);
 $id=$row['uid'];
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html >
@@ -34,18 +32,18 @@ $id=$row['uid'];
 			<div class="sign-up-htm">
 				<div class="group">
 				<?php
-				if($row['password']==$pswd){
+				//if($row['password']==$pswd){
 					echo "<input type=\"submit\" class=\"button\" value=\"Find Blood Donors\" onclick=\"location.href='finddonor.php?id=".$id."'\"><br/>";
 					echo "<input type=\"submit\" class=\"button\" value=\"Find Nearby Hospitals\" onclick=\"location.href='#'\"><br/>";
 					echo "<input type=\"submit\" class=\"button\" value=\"Find Nearby Blood Banks\" onclick=\"location.href='#'\"><br/>";
 					echo "<input type=\"submit\" class=\"button\" value=\"Profile\" onclick=\"location.href='profile.php?id=".$id."'\">";
 					echo "<br/><center><a class=\"button\" href=\"whatsapp://send?text=Donate blood to save lives!\" data-action=\"share/whatsapp/share\">Share on whatsapp</a></center>";
+				/*}
 				
-				}
 				else{
 					echo "Wrong password, try again.<br/>";
-					echo"<br/><input type=\"submit\" class=\"button\" value=\"Log in\" onclick=\"location.href='index.php'\"><br/>";
-				}
+					echo"<br/><input type=\"submit\" class=\"button\" value=\"Log in\" onclick=\"location.href='login.php'\"><br/>";
+				}*/
 				?>
 				</div>
 				<div class="hr"></div>

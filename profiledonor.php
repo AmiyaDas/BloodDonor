@@ -107,7 +107,7 @@ else{
 		</div>
 		<div class="hr"></div>
 		<div class="foot-lnk">
-			<label><a href="index.php">Back</a></label>
+			<label><a href="home2.php?id=<?php echo $id ?>">Back</a></label>
 		</div>
 		</div>
 		</div>

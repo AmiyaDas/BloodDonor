@@ -35,11 +35,8 @@ $q2="INSERT INTO user(uid, email, password) VALUES ($res,'$id','$pswd')";
 }
 
 $query = "select distinct city_name from city order by city_name;";
-
 $query_res=mysqli_query($con,$query);
-
 $tb="";
-
 while($row = mysqli_fetch_assoc($query_res))
 {
 	$tb=$tb."<option>".$row['city_name']."</option>";

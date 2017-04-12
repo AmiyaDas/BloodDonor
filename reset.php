@@ -1,36 +1,18 @@
 <?php
 include_once("connection.php");
 
-$name= $_POST['name'];
-$id=  $_POST['email'];
 $pswd= $_POST['pwd'];
-$sex= $_POST['sex'];
-$phon= $_POST['phon'];
-$donr= $_POST['donor'];
-
-//$con=mysqli_connect("localhost","root","","blood");
+$uid= $_POST['uid'];
 
 $suc = "Try Again";
 
-if(!empty($name) and !empty($id) and !empty($pswd))
+if(!empty($uid) and !empty($pswd))
 {
-$q1="select max(uid) as count from user;";
-$qres=mysqli_query($con,$q1);
-$row=mysqli_fetch_assoc($qres);
-$res=$row['count'];
-if($res==null)
-	$res=1;
+$query = "update user set password='$pswd' where uid='$uid';";
+if(mysqli_query($con,$query)){
+		$suc="Password successfully reset!";
+	}
 else
-	$res=$res+1;
-$query = "INSERT INTO profile (uid, email, name, sex, phone, donor) VALUES ($res, '$id', '$name', '$sex', '$phon', upper('$donr'));";
-$q2="INSERT INTO user(uid, email, password) VALUES ($res,'$id','$pswd')";
-	if (mysqli_query($con,$query)){
-		$suc="Sign up successful";
-	}
-	if(mysqli_query($con,$q2)){
-		$suc="Welcome ".$name.", Sign up successful!";
-	}
-	else
 	{
 		$suc="Somethings wrong";
 	}

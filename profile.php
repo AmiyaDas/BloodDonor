@@ -16,6 +16,7 @@ else if($sx=="F")
 $tb="<tr><td>Name:</td><td>".$row['name']."</td></tr>	<tr><td>Email:</td><td>".$row['email']."</td></tr>";
 $tb=$tb."<tr><td>Phone:</td><td>".$row['phone']."</td></tr>	<tr><td>Sex:</td><td>".$sx."</td></tr>";
 
+$bg2="lifeline";
 if($row['donor']=="Y"){
 $query_res=mysqli_query($con,$query2);
 $row2 = mysqli_fetch_assoc($query_res);
@@ -55,6 +56,15 @@ $tb2="<tr><td>Blood Group:</td><td>".$bg."</td></tr>
 }
 else{
 	$tb2="You are not a blood donor. <br/>If you want to change this detail please edit your profile.";
+}
+
+
+$bt="";
+if($row['donor']=="Y"){
+	$bt="editdonor.php?id=".$id;
+}
+else{
+	$bt="editprofile.php?id=".$id;
 }
 ?>
 <!DOCTYPE html>
@@ -116,11 +126,11 @@ else{
 		</table>
 		<br/><br/>
 		<div class="group">
-		<input type="submit" class="button" onclick="location.href='profileedit.php'" value="Edit Your Profile">
+		<input type="submit" class="button" onclick="location.href='<?php echo $bt ?>'" value="Edit Your Profile">
 		</div>
 		</div>
 		<div class="foot-lnk">
-			<label><a href="index.php">Back</a></label>
+			<label><a href="home2.php?id=<?php echo $id ?>">Back</a></label>
 		</div>
 		</div>
 		</div>
